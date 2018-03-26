@@ -30,7 +30,7 @@ var currentSlide = 0,
     totalSlides  = $(".tl-item").length - 1;
 
 // Creates the navigation
-$(".timeline").after("<div class='tl-nav-wrapper'><ul class='tl-nav'></ul></div><a href='#' class='tl-items-arrow-left'></a><a href='#' class='tl-items-arrow-right'></a>");
+$(".timeline").after("<div class='tl-nav-wrapper'><ul class='tl-nav'></ul></div>");
 $( ".tl-copy" ).wrapInner( "<div class='tl-copy-inner'></div>");
 
 // Cicle through items and creates the nav
@@ -55,43 +55,11 @@ $(".tl-item").each(function(i) {
 
 // Activates the first slide
 $(".tl-item:first, .tl-nav li:first").addClass("tl-active");
-
-// Slide's arrows click handlers
-$(".tl-items-arrow-left").on("click", function(){
-  if(currentSlide > 0) {
-    currentSlide--;
-  
-    // Activates the previous item
-    $(".tl-item").removeClass("tl-active");
-    $(".tl-item:eq(" + currentSlide +")").addClass("tl-active");
-    
-    // Activates the previous item nav
-    $(".tl-nav li").removeClass("tl-active");
-    $(".tl-nav li:eq(" + currentSlide + ")" ).addClass("tl-active");
-  }
-});
-
-$(".tl-items-arrow-right").on("click", function(){
-  if(currentSlide < totalSlides) {
-    currentSlide++;
-  
-    // Activates the next item
-    $(".tl-item").removeClass("tl-active");
-    $(".tl-item:eq(" + currentSlide +")").addClass("tl-active");
-    
-    // Activates the next item nav
-    $(".tl-nav li").removeClass("tl-active");
-    $(".tl-nav li:eq(" + currentSlide + ")" ).addClass("tl-active");
-  }
-});
   
 /*** Nav ***/
 // The nav's width
 var navWidth = ($(".tl-nav li").outerWidth(true) * $(".tl-nav li").length) + 36;
 $(".tl-nav").width(navWidth);
-
-// The nav's arrows
-$(".tl-nav-wrapper").append("<a href='#' class='tl-nav-arrow-left'></a><a href='#' class='tl-nav-arrow-right'></a>");
 
 /*** The timeline's height ***/
 var vpHeight  = $(window).height();
