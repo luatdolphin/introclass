@@ -1,0 +1,312 @@
+// Colors
+$bg: #289ecb;
+$line: #b2e9ff;
+$wrapper: #e4f0f4;
+
+//Transition
+$t1: .6s ease;
+
+%clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+html {
+  font-family: 'Oxygen', sans-serif;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+// Images will always fit the height of the timeline
+img {
+  width: auto;
+  height: auto;
+  max-height: 100%;
+}
+
+h3 {
+  font-size: 40px;
+  margin-top: 0;
+  font-weight: 300;
+}
+
+/*** The timeline styles and structure ***/
+.tl-wrapper {
+  background: $wrapper;
+  min-height: 1px;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    &:after {
+      @extend %clearfix;
+    }
+  }
+}
+
+/*** The items ***/
+.tl-item {
+  visibility: hidden;
+  overflow: hidden;
+  z-index: 0;
+  .tl-copy {
+    transition: $t1;
+    //opacity: 0;
+    transform: translate3d(60%,0,0);
+  }
+  .tl-image {
+    transition: $t1;
+    //opacity: .5;
+    transform: translate3d(0,-100%,0);
+  }
+}
+
+.tl-item.tl-active {
+  visibility: visible;
+  z-index: 10;
+  .tl-copy {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+  .tl-image {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+
+// Image's container
+.tl-image {
+  float: left;
+  width: 70%;
+  img {
+    display: block;
+  }
+}
+
+// Copy's styles
+.tl-copy {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  padding: 16px;
+  padding: 1rem;
+  background: $bg;
+  color: #fff;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: -19px;
+    
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 21px 20px 21px 0;
+    border-color: transparent $bg transparent transparent;
+  }
+}
+
+/*** The arrows for the items ***/
+.tl-items-arrow-left,
+.tl-items-arrow-right {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 40px;
+  top: 50%;
+  margin-top: -40px;
+  z-index: 100;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+  }
+}
+.tl-items-arrow-left {
+  left: 0;
+  &:before {
+    top: 0;
+    transform-origin: top right;
+    transform: rotate(-45deg);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg);
+  }
+}
+.tl-items-arrow-right {
+  right: 0;
+  &:before {
+    top: 0;
+    transform-origin: top left;
+    transform: rotate(45deg);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+  }
+}
+
+/*** The nav's styles ***/
+.tl-nav-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  margin: 0;
+  padding: 16px 0 0 0;
+  
+  border-top: 1px solid $line;
+  overflow-x: hidden;
+  width: 100%;
+  &:before,
+  &:after {
+    content: "";
+    width: 38px;
+    height: 86px;
+    position: absolute;
+    top: 17px;
+    
+    background: $wrapper;
+    z-index: 50;
+  }
+  &:before { left: 0; }
+  &:after { right: 0; }
+}
+
+.no-csstransforms .tl-nav-wrapper {
+  overflow-x: auto;
+}
+
+.tl-nav {
+  list-style: none;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px dashed $bg;
+  
+  transition: all .4s ease;
+  li {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    
+    float: left;
+    cursor: pointer;
+    margin-right: 1rem;
+    
+    font-size: 12px;
+    text-align: center;
+    div {
+      width: 34px;
+      height: 34px;
+      margin: auto;
+      
+      background: $bg;
+      color: #fff;
+      padding-top: 9px;
+      border-radius: 1000px;
+      transition: $t1;
+    }
+    &:hover div,
+    &.tl-active div{
+      width: 70px;
+      height: 70px;
+      background: transparent;
+      color: $bg;
+      border: 1px solid $bg;
+      font-size: 24px;
+      padding-top: 19px;
+    }
+    &:before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      margin-left: -2px;
+      
+      background: $bg;
+      border-radius: 1000px;
+    }
+  }
+  &:after {
+    @extend %clearfix;
+  }
+}
+
+/*** The nav's nav styles ***/
+.tl-nav-arrow-left,
+.tl-nav-arrow-right {
+  position: absolute;
+  width: 12px;
+  height: 20px;
+  top: 50%;
+  z-index: 100;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: $bg;
+  }
+}
+.tl-nav-arrow-left {
+  left: 9px;
+  &:before {
+    top: 0;
+    transform-origin: top right;
+    transform: rotate(-45deg);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: bottom right;
+    transform: rotate(45deg);
+  }
+}
+.tl-nav-arrow-right {
+  right: 9px;
+  &:before {
+    top: 0;
+    transform-origin: top left;
+    transform: rotate(45deg);
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+  }
+}
+
+.no-csstransforms .tl-nav-arrow-left,
+.no-csstransforms .tl-nav-arrow-right {
+  display: none;
+}
