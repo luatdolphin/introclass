@@ -63,7 +63,7 @@ $(".tl-nav").width(navWidth);
 
 /*** The timeline's height ***/
 var vpHeight  = $(window).height();
-var tlHeight = vpHeight - $(".tl-nav-wrapper").outerHeight(true) - 26;
+var tlHeight = vpHeight - $(".tl-nav-wrapper").outerHeight(true) - 0;
 $(".tl-wrapper").height(vpHeight);
 $(".tl-item").css("max-height", tlHeight);
 $(".tl-item").height(tlHeight);
@@ -71,19 +71,3 @@ $(".tl-item").height(tlHeight);
 /*** Nav's navigation... ***/
 var navTranslation = 0;
 var navLimit = (navWidth - $(".tl-nav-wrapper").outerWidth(true) + 20) * -1;
-
-// To the left
-$(".tl-nav-arrow-left").on("click", function() {
-  if(navTranslation < 0) {
-    navTranslation = navTranslation + 86;
-    $(".tl-nav").css(prefix + "transform", "translateX(" + navTranslation + "px)");
-  }
-});
-
-// To the right
-$(".tl-nav-arrow-right").on("click", function() {
-  if(navTranslation >= navLimit) {
-    navTranslation = navTranslation - 86;
-    $(".tl-nav").css(prefix + "transform", "translateX(" + navTranslation + "px)");
-  }
-});
