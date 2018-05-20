@@ -190,10 +190,10 @@ Patterns - reusable parts of our design
 .cd-btn {
   text-decoration: none;
   width: max-content;
-  transform: translateX(50%);
+  transform: translateX(75%);
   display: inline-block;
-  padding: 1.6em 2.4em;
-  font-size: 1.4rem;
+  padding: 1.1em 1.4em;
+  font-size: 0.8rem;
   letter-spacing: .15em;
   color: #ffffff;
   font-weight: 700;
