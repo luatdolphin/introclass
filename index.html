@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Giới thiệu chức nghiệp</title>
-    <script src="js/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300' rel='stylesheet' type='text/css'>  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
       <link rel="stylesheet" href="css/style.css">
@@ -14,11 +13,35 @@
 <div class="tl-wrapper">
   <ul class="timeline">
     <li class="tl-item" data-year="Thông tin">
-      <div class="tl-image"><img src="img/toaimong/toaimong-min.png"/></div>
+      <div class="tl-image"><video width="100%" height="auto" autoplay loop>
+        <source src="https://n.v.netease.com/2018/0516/7c38a857ee1c2d9993f3a45eeffc2941.mp4" type="video/mp4" />
+        <source src="https://n.v.netease.com/2018/0517/17708dcab61c86ecdaae00f055f063df.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video></div>
       <div class="tl-copy">
         <h3 class="title"><span style="font-weight:bold;">Toái Mộng - 碎梦</span></h3>
         <div class="tl-description">
-          <p>Toái Mộng lãnh khốc, tinh thông tiềm hành ám sát. Trên người luôn mang đoản đao đầy sát khí. Toái Mộng lực phòng ngự gần như bằng 0, thế nhưng chức nghiệp này lại có tính cơ động cùng sát thương cực cao. Chức nghiệp này cũng có chút khó chơi đối với người mới bắt đầu.</p>
+          <p>Toái Mộng lãnh khốc, tinh thông tiềm hành ám sát. Trên người luôn mang đoản đao đầy sát khí. Toái Mộng lực phòng ngự gần như bằng 0, thế nhưng chức nghiệp này lại có tính cơ động cùng sát thương cực cao, tuy nhiên lại có chút khó khăn trong thao tác nhân vật đối với người mới bắt đầu.</p>
+
+          <main class="cd-main-content">
+              <div class="center">
+                <a href="#0" class="cd-btn cd-modal-trigger">Video giới thiệu</a>
+              </div>
+            </main> <!-- .cd-main-content -->
+            
+            <div class="cd-modal">
+              <div class="modal-content">
+                <video width="100%" height="auto" autoplay>
+                  <source src="https://nie.v.netease.com/r/video/20180520/dbeec961-2945-4873-a638-9fba47d21d8b.mp4" type="video/mp4" />
+                </video>
+              </div> <!-- .modal-content -->
+            
+              <a href="#0" class="modal-close">Close</a>
+            </div> <!-- .cd-modal -->
+            
+            <div class="cd-transition-layer"> 
+              <div class="bg-layer"></div>
+            </div> <!-- .cd-transition-layer -->
 
         </div>
       </div>
@@ -32,7 +55,10 @@
         </div>
       </div>
     </li>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
     <script src="js/index.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>
