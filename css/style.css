@@ -482,3 +482,9 @@ Transition Layer
     transform: translateY(-50%) translateX(-2%);
   }
 }
+div.central { 
+  width: 63% !important;
+  height: auto !important;
+  margin: 0 auto;
+  display: block;
+}
