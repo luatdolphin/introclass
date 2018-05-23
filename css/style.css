@@ -484,6 +484,6 @@ Transition Layer
 div.central { 
   width: 72% !important;
   height: auto !important;
-  margin: 8px auto 0px auto
+  margin: 8px auto 0px auto;
   display: block;
 }
